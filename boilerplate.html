@@ -35,7 +35,18 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide">
-	<h1>Slide</h1>
+	<div>
+		<h1>
+			<span style="color: rgb(0, 0, 0);text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);">
+			OpenCV, OCR 
+			</span></br>
+			<span style="font-size: 50%;font-weight: 100;text-shadow: 1px 1px 1px rgb(255, 255, 255);">
+			experiments on Droids.
+			</span>
+		</h1>
+		<img src="img/droid.png" alt="" style="margin-top:550px" class="droid_png">
+
+	</div>
 </section>
 
 <section class="slide">
@@ -49,6 +60,13 @@
 	     <div class="slide">
 	     	<pre>
 		        <code class="java"> 
+		          public boolean aIsBigger(int a, int b) {
+		            if (a > b && (a - b) >= 2) {
+		              return true;
+		            } else {
+		              return false;
+		            }
+		          }
 		          public boolean aIsBigger(int a, int b) {
 		            if (a > b && (a - b) >= 2) {
 		              return true;
