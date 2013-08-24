@@ -23,15 +23,16 @@
   color: #08455f;
 }
 .deck-container .slide h2 {
+  font-weight: 100;
   color: rgb(24, 29, 69);
   border-bottom: 0;
   font-size: 80px;
   text-shadow: rgba(0, 0, 0, 0.2) 2px 6px 5px, rgba(255, 255, 255, 0.4) 0px -4px 30px;
-  -webkit-transform: translate(0px, 0px) rotate(0deg) skew(-9deg, -2deg) scale(1, 1);
-  -moz-transform: translate(0px, 0px) rotate(0deg) skew(-9deg, -2deg) scale(1, 1);
-  -o-transform: translate(0px, 0px) rotate(0deg) skew(-9deg, -2deg) scale(1, 1);
-  -ms-transform: translate(0px, 0px) rotate(0deg) skew(-9deg, -2deg) scale(1, 1);
-  transform: translate(0px, 0px) rotate(0deg) skew(-9deg, -2deg) scale(1, 1); 
+  -webkit-transform: translate(0px, 0px) rotate(0deg) skew(0deg, -1deg) scale(1, 1);
+  -moz-transform: translate(0px, 0px) rotate(0deg) skew(0deg, -1deg) scale(1, 1);
+  -o-transform: translate(0px, 0px) rotate(0deg) skew(0deg, -1deg) scale(1, 1);
+  -ms-transform: translate(0px, 0px) rotate(0deg) skew(0deg, -1deg) scale(1, 1);
+  transform: translate(0px, 0px) rotate(0deg) skew(0deg, -1deg) scale(1, 1); 
 }
 .cssreflections .deck-container .slide h2 {
   line-height: 1;
@@ -41,6 +42,8 @@
 
 .deck-container .slide h3 {
   color: #000;
+  font-weight: 100;
+  font-style: italic;
 }
 .deck-container .slide pre {
   border-color: #cde;
@@ -226,4 +229,24 @@
   width: 100%;
   bottom: -21px;
   color: #888;
+}
+
+#css_col{
+  border-style:none;
+}
+
+ul.nopoint{
+  list-style-type: none; 
+}
+
+li.text{
+  font-size: 40px;
+}
+
+code{
+  color:#384583 !important;
+}
+
+embed{
+height: 500px;
 }

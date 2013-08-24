@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Android OpenCV PPT</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+	
+	<link rel="stylesheet" href="extensions/highlight.js/styles/xcode.css">
+	<script src="extensions/highlight.js/highlight.pack.js"></script>
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/web-2.0.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+	<div>
+		<h1 style="color: rgb(0, 0, 0);font-weight: 200;text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);">
+		OpenCV Experiments
+		</h1></br>
+		<h2 style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
+		Droids, anyone?</br>
+		</h2>
+		
+		<img src="img/droid.png" alt="" style="margin-top:550px" class="droid_png">
+	</div>
+</section>
+
+
+
+<section class="slide">
+	<h2>Heya</h2>
+	  <h3 style="font-style: normal;"><pre>Wingston Sharon |  @wingston | github.com/Wingie</pre></h3>	
+	  <ul class="nopoint">
+	     <li class="slide text">
+	     	<blockquote cite="http://example.org">
+	     		<p>
+					Trust me, I'm an Engineer.
+	     	    </p>
+	     	    <p>
+	     	    <cite>
+	     	      Anon
+	     	    </cite>	
+	     		</p>
+	     	</blockquote>
+	     </li>
+	     <div class="slide">
+	     	
+		        <code class="javascript"> 
+				<pre>
+var technologies = ["js","python","php","java","unix","Obj-C"];
+
+var interests = ["Guitar","Coding","Gaming","RandomExperiments"];
+				</pre>
+		      	</code>
+	  		
+	     </div>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Overview</h2>
+	  <ul>
+	     <li class="text" >
+	        Online Image processing on Android Devices with OpenCV
+	     </li>
+	    <li class="text">
+	        A Quick look into how image processing works.
+	     </li>
+	     <li class="text">
+	        Anatomy of an app that detects circular shapes in Images.
+	     </li>
+	     <li class="text">
+	        Preparing images for OCR via Tesseract
+	     </li>
+	</ul>
+</section>
+
+<!-- INTRODUCTION  -->
+<section class="slide">
+	<h2>com.opencv.android</h2>
+	  <ul>
+	     <li class="text">
+	        OpenCV, a C/C++ based image processing framework with wrappers in *tons* of languages.
+	     </li>
+	    <li class="text">
+	        You can write C++ algorithms via JNI or stick to the self documented Java Apis.
+	     </li>
+	     <li class="text">
+	        Image processing operations are just a function call away.
+	     </li>
+	     <li class="text">
+	        You include it like any other library after importing it into the android workspace.
+	     </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Image Processing on Android Devices</h2>
+	 <h3>Choose your weapons</h3>
+	  <ul>
+	     <li class="slide text">
+	        Processing of image files from the filesystem after reading it into a <code>java.io.File</code> object.
+	     </li>
+	 
+	    <li class="slide text">
+	        Subclass <code>CvCameraViewListener2</code> and <code>JavaCameraView</code> so that you can intercept the live camera feed and do frame by frame processing on it before drawing it onto the screen.
+	    </li>
+		<li class="slide text">
+	        Use Async Design Patterns  like <code> extends AsyncTask<Void, Void, Boolean></code> so that computation happens on seperate thread to UI thread.
+	    </li>
+	    <li class="slide text">
+	        Use WebService to perform offline Image Processing.
+	    </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Things to do</h2>
+	 <h3>python, your webcam and OpenCV all walk into a bar..</h3>
+	  <ul>
+	     <li class="slide text">
+	        Visualization – Reconstructing Objects that are not visible normally.
+	     </li>
+	    <li class="slide text">
+	        Image sharpening and restoration – To create a better image.
+	    </li>
+		<li class="slide text">
+	        Image Recognition – Distinguishing individual objects in an image.
+	    </li>
+	    <li class="slide text">
+	        Tracking position of a moving object.
+	    </li>
+	    <li class="slide text">
+	        Funny Instagram filters.
+	    </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Too. munch. math.</h2>
+	 <h3>Use open source tools and libraries responsibly.</h3> *much 
+	  <ul>
+	     <li class="slide text">
+	        Your code see's images as Matrixes of Integers. 
+	     </li>
+	    <li class="slide text">
+	        an RGB image is read as a 3 * 3D Matrix. <code>[x, y, (r,g,b)]</code>
+	    </li>
+		<li class="slide text">
+	        Mathematically, Image Processing is studied as a special case of Signal Processing.
+	    </li>
+	    <li class="slide text">
+	        Luckily, you (almost) never need to dwelve into the intricacies of the mathematics involved. 
+	    </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Adding up Images</h2>
+	 <h3>or blending, as the cool kids would call it.</h3> *much 
+	  <ul class="nopoint">
+	     <li class="text">
+	        <code class="clike "><pre>
+alpha = 0.4;
+beta = ( 1.0 - alpha );
+gamma = 0
+addWeighted( src1, alpha, src2, beta, gamma, dst);
+	        </pre></code>
+	     </li>
+	    <li class="text">
+	        <code>src1 & src2</code> are two matrixes. <code>alpha & beta</code> are weights ( relative transparency). <code>gamma</code> is scalar deviation.
+	    </li>
+		<li class="text">
+	        <pre>dst = (alpha * src1) + (beta * src2) + gamma</pre>
+	    </li>
+	    
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Here</h2>
+	<h3>what do you get when you ask a cyclone a riddle?</h3>
+	<div class="polaroid">
+		<img src="img/blend.png" alt="">
+		<p>BrainStorms</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h1 style="text-shadow: 2px 2px 2px rgb(0, 0, 0);">A Question</h1>
+	<h2 >What would be a use for image subtraction?</h2>
+</section>
+
+<!-- COLORs and Image format conversion  -->
+<section class="slide">
+	<h2>Color Spaces</h2>
+	 <h3>How do you explain the red to a blind person?</h3> #FF0000
+	  <ul>
+	     <li class="slide text">
+	        <code>RGB</code> is the most used color format for displaying things on Screens. <code>CMYK</code> is used by printers.
+	     </li>
+	    <li class="slide text">
+	        Your code would prefer to see your images in <code>HSV</code>. [Hue/<code>Color</code>, Saturation/<code>Greyness</code>, Value/<code>Brightness</code>]
+	    </li>
+		<li class="slide text">
+	        These are not "<code>standards</code>".. OpenCV does conversions differently to commercially available image editing software.
+	    </li>
+	    <li class="slide text">
+	        Binary Format [1,0] is also one way that we can handle images
+	    </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>HSV</h2>
+	<h3>What is 350 + 100?</h3> - wikipedia
+	<div class="polaroid">
+		<img src="img/hsv.png" alt="">
+		<p>90 Degrees</p>
+	</div>
+</section>
+
+<!-- Histogram Reading  -->
+
+<section class="slide">
+	<h2>Histograms</h2>
+	<h3>Allowing us to visualise images since 1895.</h3> 
+	<div class="polaroid">
+		<img src="img/histogram_whitish.png" alt="">
+		<p>That is actually a close up of a wall.</p>
+	</div>
+	<input type="text" id="css_col">
+</section>
+
+<section class="slide">
+	<h2>For instance,</h2>
+	<div class="polaroid">
+		<img src="img/histogram_black.png" alt="">
+		<p>Making my camera blind.</p>
+	</div>
+	<input type="text" id="css_col">
+</section>
+
+<section class="slide">
+	<h2>this image has a higher illumination</h2>
+	<div class="polaroid">
+		<img src="img/light_blue.png" alt="">
+		<p>Coudn't find anything blue at home.. So i resorted to google.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>than this one.</h2>
+	<div class="polaroid">
+		<img src="img/dark_blue.png" alt="">
+		<p>#TODO: Add autofocus and mode select code.</p>
+	</div>
+</section>
+
+<!-- Detecting Circles  -->
+
+<section class="slide">
+	<h2>Detecting Circlular shapes in a photo.</h2>
+	 <h3>and then sharing them with your friends..</h3> 
+	  <ul>
+	     <li class="slide text">
+	        First we need a way to detect edges of objects in an image.
+	     </li>
+	    <li class="slide text">
+	        One way to do this is "posterizing" the image or <code>cvPyrMeanShiftFiltering</code>.
+	     </li>
+	     <li class="slide text">
+	        It allows us to find “chunks” of image that have meaning. 
+	     </li>
+	     <li class="slide text">
+	       Mathematically, it assumes that every pixel has 2 color components, <pre>color = a.c1 +  (1-a).c2</pre>
+	     </li>
+	     <li class="slide text">
+	        It then uses, the principle of differentiation to estimate regions where the <code>d/dx(color)</code> is very high. Those will turn out to be the borders.
+	     </li>
+	 
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Posterization a.k.a Mean Shift Filtering</h2>
+	<div class="polaroid">
+		<img src="img/circle_edge.png" alt="">
+		<p>Also available in photoshop 5 </p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>Canny Edge Detection</h2>
+	 <h3>A more optimal edge detector..</h3> 
+	  <ul>
+	     <li class=" text">
+    <code>Low error rate </code>so we don't see "fake" edges.</br>
+    <code>Good localization</code> so that the detected edge is as thin as possible.</br>
+   	<code>Minimal response </code> so we don't waste time on edges already discovered.
+	     </li>
+	     <li class="slide text">
+	     	Takes a vector gradient map <code>(intensity of change, direction)</code> and uses that to detect edges.
+	     </li>
+	     <li class="slide text">
+	     	Fast enough that you don't notice much lag if you run it in realtime mode. (openCV Samples)
+	     </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Canny Ramen</h2>
+	<div class="polaroid">
+		<img src="img/circle_edge_canny.png" alt="">
+		<p>As a side effect, everything is now either black or white..</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>Hough Transform</h2>
+	 <h3>So i give this function an image, and it basically returns an array of (c,r) objects..</h3> 
+	  <div class="polaroid">
+		<img src="img/cirle_hough_2.png" alt="">
+		<p>one function call.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>A nicely thought out algorithm</h2>
+	 <h3>If math is your thing that is..</h3> 
+	  <div class="polaroid">
+	  	<embed src="lec782_05_10.pdf" width="1050px" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" mytubeprocessed="Y">
+	 </div>
+</section>
+
+<section class="slide">
+	<h2>A Watch</h2>
+	  <div class="polaroid">
+		<img src="img/watch_hough.png" alt="">
+		<p>It's not *always* right..</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>Sobel Edge Detection</h2>
+	  <div class="polaroid">
+		<img src="img/sobel.png" alt="">
+		<p>I've never figured out why this would be useful..</p>
+	</div>
+</section>
+
+
+<!-- Intro to Tessearct OCR  -->
+<section class="slide">
+	<h2>The Tesseract</h2>
+	 <h3>Dont worry, this is the open source one..</h3> 
+	  <ul>
+	     <li class="text">
+			Library that allows you to perform character recognition on an image via machine learning. 
+    	 </li>
+	     <li class="text">
+	     	Apache licened <code>trained data files</code> for a *bunch* of Languages. Or you can even create your own data files for handwriting / fonts.
+	     </li>
+	     <li class="text">
+			 Provides an <code>isword()</code>  function for  validation and improved accuracy thru majority voting. 
+	     </li>
+	     <li class="text">
+			 Is CPU Intensive. Don't try running it on camera/UI thread.
+	     </li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>T-APIs</h2>
+	    <code class="java "> 
+		<pre>
+TessBaseAPI baseApi = new TessBaseAPI();
+
+// DATA_PATH = Path to the storage
+// lang = for which the language data exists, usually "eng"
+baseApi.init(DATA_PATH, lang);
+// Eg. baseApi.init("/mnt/sdcard/tesseract/tessdata/eng.traineddata", "eng");
+
+baseApi.setImage(bitmap);
+String recognizedText = baseApi.getUTF8Text();
+baseApi.end();
+		</pre>
+	  	</code>
+</section>
+
+<section class="slide">
+	<h2>Directly giving image for OCR</h2>
+	<h3>it works, but not that well..</h3>
+	  <div class="polaroid">
+		<img src="img/text_ocr_plain.png" alt="">
+		<p>The things i find randomly..</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>After some image processing..</h2>
+	<h3>Its like glasses, but for code.</h3>
+	  <div class="polaroid">
+		<img src="img/text_ocr_detct.png" alt="">
+		<p>*staples</p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>Thresholding.</h2>
+	  <ul>
+	     <li class="text">
+			We choose a value as a threshold, then use that to compare every pixel in the image with this value.  Making an image of the result <code>(true/false)</code>  gives us a thresholded image.
+    	 </li>
+    	 <li class="text">
+			There are variety of threshold methods that provide different results. Your mileage may vary depending upon application.
+    	 </li>
+	     <div class="polaroid">
+		<img src="img/thresh.jpeg" alt="">
+		<p>--mathworks</p>
+	</div>
+	</ul>
+</section>
+
+<!-- Preparing Images before giving them to tesseract -->
+<section class="slide">
+	<h2>So what all did i do?</h2>
+	 <h3>OpenCV makes this part simple.</h3> 
+	  <ul>
+	     <li class="slide text">
+	     	A low value <code>guassian filter</code>. This blurring effect reduces the noise and sharp edges in the pic.
+	     	<pre><code>Imgproc.GaussianBlur(i, o, new Size(9,9),15);</code></pre>  [you may need to sharpen the image after this if the font is too small..] 
+    	 </li>
+	     <li class="slide text">
+	     	Convert image into grayscale.
+	     	<pre><code>Imgproc.cvtColor(i, o, Imgproc.COLOR_RGB2GRAY,3);</code></pre>
+	     </li>
+	     <li class="slide text">
+	     	Binary Thresholding converts the image to 1s and 0s.
+	     	<pre><code>Imgproc.threshold(i, o,0,255,Imgproc.THRESH_BINARY | Imgproc.THRESH_OTSU);</code></pre>
+	     </li>
+	</ul>
+</section>
+<section class="slide">
+	<h2>Tl;Dr</h2>
+	 <h3>We were talking about Image Processing.</h3> 
+	  <ul>
+	     <li class="slide text">
+	     	Not that hard. openCV reduces image processing to function calls.
+		</li>
+	     <li class="slide text">
+	     	Fun way to use your Android device's GPU natively. (C++ batteries included)
+	     </li>
+	     <li class="slide text">
+	     	You can never run out of things to try out..
+	     </li>
+	     <li class="slide text">
+	     	Fork. <code>Code.</code> Publish with MIT licence.
+	     </li>
+	</ul>
+</section>
+<!-- End slides. -->
+<!-- 
+<section class="slide">
+	<h2></h2>
+	 <h3></h3> 
+	  <ul>
+	     <li class="slide text">
+    	     </li>
+	     <li class="slide text">
+	     </li>
+	     <li class="slide text">
+	     </li>
+	</ul>
+</section>
+ -->
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+	$("pre").each(function (i, e) {
+	    hljs.highlightBlock(e);
+	});
+	$('#css_col').live('change',function  () {
+		$(this).css('background','#'+$(this).val());
+	});
+</script>
+</body>
+</html>
