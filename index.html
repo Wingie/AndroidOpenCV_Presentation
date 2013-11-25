@@ -37,7 +37,7 @@
 <section class="slide">
 	<div>
 		<h1 style="color: rgb(0, 0, 0);font-weight: 200;text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);">
-		OpenCV Experiments
+		OpenCV Workshop
 		</h1></br>
 		<h2 style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
 		Droids, anyone?</br>
@@ -83,16 +83,19 @@ var interests = ["Guitar","Coding","Gaming","RandomExperiments"];
 	<h2>Overview</h2>
 	  <ul>
 	     <li class="text" >
-	        Online Image processing on Android Devices with OpenCV
+	        Setting up openCV and `hello world` 	
 	     </li>
 	    <li class="text">
-	        A Quick look into how image processing works.
+	        Some image processing fundamentals. - Histograms / edges and other stuff.
 	     </li>
 	     <li class="text">
-	        Anatomy of an app that detects circular shapes in Images.
+	        A quick look at some OpenCV programs. 	
 	     </li>
 	     <li class="text">
-	        Preparing images for OCR via Tesseract
+	        `Work`Shop time : Tracking balls by color	
+	     </li>
+	     <li class="text">
+	        Doing more with openCV
 	     </li>
 	</ul>
 </section>
@@ -118,60 +121,38 @@ var interests = ["Guitar","Coding","Gaming","RandomExperiments"];
 
 <section class="slide">
 	<h2>Image Processing on Android Devices</h2>
-	 <h3>Choose your weapons</h3>
+	 <h3>a Droid, your webcam and OpenCV all walk into a bar..</h3>
 	  <ul>
-	     <li class="slide text">
-	        Processing of image files from the filesystem after reading it into a <code>java.io.File</code> object.
+	     <li class="text">
+	        Processing of image files from a <code>java.io.File</code> object.
 	     </li>
 	 
-	    <li class="slide text">
-	        Subclass <code>CvCameraViewListener2</code> and <code>JavaCameraView</code> so that you can intercept the live camera feed and do frame by frame processing on it before drawing it onto the screen.
+	    <li class="text">
+	        Subclass <code>CvCameraViewListener2</code> and <code>JavaCameraView</code> for procesing the live video preiew feed from camera.
 	    </li>
-		<li class="slide text">
+		<li class="text">
 	        Use Async Design Patterns  like <code> extends AsyncTask<Void, Void, Boolean></code> so that computation happens on seperate thread to UI thread.
 	    </li>
-	    <li class="slide text">
+	    <li class="text">
 	        Use WebService to perform offline Image Processing.
 	    </li>
 	</ul>
 </section>
 
 <section class="slide">
-	<h2>Things to do</h2>
-	 <h3>python, your webcam and OpenCV all walk into a bar..</h3>
-	  <ul>
-	     <li class="slide text">
-	        Visualization – Reconstructing Objects that are not visible normally.
-	     </li>
-	    <li class="slide text">
-	        Image sharpening and restoration – To create a better image.
-	    </li>
-		<li class="slide text">
-	        Image Recognition – Distinguishing individual objects in an image.
-	    </li>
-	    <li class="slide text">
-	        Tracking position of a moving object.
-	    </li>
-	    <li class="slide text">
-	        Funny Instagram filters.
-	    </li>
-	</ul>
-</section>
-
-<section class="slide">
-	<h2>Too. munch. math.</h2>
+	<h2>Images, Math and coffee.</h2>
 	 <h3>Use open source tools and libraries responsibly.</h3> *much 
 	  <ul>
-	     <li class="slide text">
+	     <li class="text">
 	        Your code see's images as Matrixes of Integers. 
 	     </li>
-	    <li class="slide text">
+	    <li class="text">
 	        an RGB image is read as a 3 * 3D Matrix. <code>[x, y, (r,g,b)]</code>
 	    </li>
-		<li class="slide text">
+		<li class="text">
 	        Mathematically, Image Processing is studied as a special case of Signal Processing.
 	    </li>
-	    <li class="slide text">
+	    <li class="text">
 	        Luckily, you (almost) never need to dwelve into the intricacies of the mathematics involved. 
 	    </li>
 	</ul>
@@ -208,27 +189,22 @@ addWeighted( src1, alpha, src2, beta, gamma, dst);
 	</div>
 </section>
 
-<section class="slide">
-	<h1 style="text-shadow: 2px 2px 2px rgb(0, 0, 0);">A Question</h1>
-	<h2 >What would be a use for image subtraction?</h2>
-</section>
-
 <!-- COLORs and Image format conversion  -->
 <section class="slide">
 	<h2>Color Spaces</h2>
 	 <h3>How do you explain the red to a blind person?</h3> #FF0000
 	  <ul>
-	     <li class="slide text">
+	     <li class="text">
 	        <code>RGB</code> is the most used color format for displaying things on Screens. <code>CMYK</code> is used by printers.
 	     </li>
-	    <li class="slide text">
+	    <li class="text">
 	        Your code would prefer to see your images in <code>HSV</code>. [Hue/<code>Color</code>, Saturation/<code>Greyness</code>, Value/<code>Brightness</code>]
 	    </li>
-		<li class="slide text">
-	        These are not "<code>standards</code>".. OpenCV does conversions differently to commercially available image editing software.
+		<li class="text">
+	        These are not "<code>standards</code>".. with proprietary tools your mileage may vary.s
 	    </li>
-	    <li class="slide text">
-	        Binary Format [1,0] is also one way that we can handle images
+	    <li class="text">
+	        Binary Format [1,0] is the best way to deal with images.
 	    </li>
 	</ul>
 </section>
@@ -258,7 +234,7 @@ addWeighted( src1, alpha, src2, beta, gamma, dst);
 	<h2>For instance,</h2>
 	<div class="polaroid">
 		<img src="img/histogram_black.png" alt="">
-		<p>Making my camera blind.</p>
+		<p>blinding darkness == 0x000000.</p>
 	</div>
 	<input type="text" id="css_col">
 </section>
@@ -267,7 +243,7 @@ addWeighted( src1, alpha, src2, beta, gamma, dst);
 	<h2>this image has a higher illumination</h2>
 	<div class="polaroid">
 		<img src="img/light_blue.png" alt="">
-		<p>Coudn't find anything blue at home.. So i resorted to google.</p>
+		<p>blues</p>
 	</div>
 </section>
 
@@ -275,66 +251,27 @@ addWeighted( src1, alpha, src2, beta, gamma, dst);
 	<h2>than this one.</h2>
 	<div class="polaroid">
 		<img src="img/dark_blue.png" alt="">
-		<p>#TODO: Add autofocus and mode select code.</p>
+		<p>#TODO: Add autofocusing code... eventually</p>
 	</div>
 </section>
 
 <!-- Detecting Circles  -->
 
-<section class="slide">
-	<h2>Detecting Circlular shapes in a photo.</h2>
-	 <h3>and then sharing them with your friends..</h3> 
-	  <ul>
-	     <li class="slide text">
-	        First we need a way to detect edges of objects in an image.
-	     </li>
-	    <li class="slide text">
-	        One way to do this is "posterizing" the image or <code>cvPyrMeanShiftFiltering</code>.
-	     </li>
-	     <li class="slide text">
-	        It allows us to find “chunks” of image that have meaning. 
-	     </li>
-	     <li class="slide text">
-	       Mathematically, it assumes that every pixel has 2 color components, <pre>color = a.c1 +  (1-a).c2</pre>
-	     </li>
-	     <li class="slide text">
-	        It then uses, the principle of differentiation to estimate regions where the <code>d/dx(color)</code> is very high. Those will turn out to be the borders.
-	     </li>
-	 
-	</ul>
-</section>
 
 <section class="slide">
 	<h2>Posterization a.k.a Mean Shift Filtering</h2>
 	<div class="polaroid">
 		<img src="img/circle_edge.png" alt="">
-		<p>Also available in photoshop 5 </p>
+		<p>Also available from photoshop 5 </p>
 	</div>
 </section>
 
-<section class="slide">
-	<h2>Canny Edge Detection</h2>
-	 <h3>A more optimal edge detector..</h3> 
-	  <ul>
-	     <li class=" text">
-    <code>Low error rate </code>so we don't see "fake" edges.</br>
-    <code>Good localization</code> so that the detected edge is as thin as possible.</br>
-   	<code>Minimal response </code> so we don't waste time on edges already discovered.
-	     </li>
-	     <li class="slide text">
-	     	Takes a vector gradient map <code>(intensity of change, direction)</code> and uses that to detect edges.
-	     </li>
-	     <li class="slide text">
-	     	Fast enough that you don't notice much lag if you run it in realtime mode. (openCV Samples)
-	     </li>
-	</ul>
-</section>
 
 <section class="slide">
-	<h2>Canny Ramen</h2>
+	<h2>Canny-Ramen-Edge Detection</h2>
 	<div class="polaroid">
 		<img src="img/circle_edge_canny.png" alt="">
-		<p>As a side effect, everything is now either black or white..</p>
+		<p>As a side effect of a canny edge detector, everything is now either black or white..</p>
 	</div>
 </section>
 
@@ -359,129 +296,121 @@ addWeighted( src1, alpha, src2, beta, gamma, dst);
 	<h2>A Watch</h2>
 	  <div class="polaroid">
 		<img src="img/watch_hough.png" alt="">
-		<p>It's not *always* right..</p>
+		<p>It's gets it *mostly* right..</p>
 	</div>
 </section>
 
 <section class="slide">
-	<h2>Sobel Edge Detection</h2>
-	  <div class="polaroid">
-		<img src="img/sobel.png" alt="">
-		<p>I've never figured out why this would be useful..</p>
-	</div>
-</section>
-
-
-<!-- Intro to Tessearct OCR  -->
-<section class="slide">
-	<h2>The Tesseract</h2>
-	 <h3>Dont worry, this is the open source one..</h3> 
+	<h2>Programming in OpenCV</h2>
+	 <h3>Tools required.</h3> 
 	  <ul>
 	     <li class="text">
-			Library that allows you to perform character recognition on an image via machine learning. 
+    	 Android SDK + NDK
     	 </li>
 	     <li class="text">
-	     	Apache licened <code>trained data files</code> for a *bunch* of Languages. Or you can even create your own data files for handwriting / fonts.
+	     OpenCV SDK 
 	     </li>
 	     <li class="text">
-			 Provides an <code>isword()</code>  function for  validation and improved accuracy thru majority voting. 
+	     OpenCV Samples 
 	     </li>
 	     <li class="text">
-			 Is CPU Intensive. Don't try running it on camera/UI thread.
+		 OpenCV manager on your device
 	     </li>
 	</ul>
 </section>
 
-
 <section class="slide">
-	<h2>T-APIs</h2>
-	    <code class="java "> 
-		<pre>
-TessBaseAPI baseApi = new TessBaseAPI();
-
-// DATA_PATH = Path to the storage
-// lang = for which the language data exists, usually "eng"
-baseApi.init(DATA_PATH, lang);
-// Eg. baseApi.init("/mnt/sdcard/tesseract/tessdata/eng.traineddata", "eng");
-
-baseApi.setImage(bitmap);
-String recognizedText = baseApi.getUTF8Text();
-baseApi.end();
-		</pre>
-	  	</code>
-</section>
-
-<section class="slide">
-	<h2>Directly giving image for OCR</h2>
-	<h3>it works, but not that well..</h3>
-	  <div class="polaroid">
-		<img src="img/text_ocr_plain.png" alt="">
-		<p>The things i find randomly..</p>
-	</div>
-</section>
-
-<section class="slide">
-	<h2>After some image processing..</h2>
-	<h3>Its like glasses, but for code.</h3>
-	  <div class="polaroid">
-		<img src="img/text_ocr_detct.png" alt="">
-		<p>*staples</p>
-	</div>
-</section>
-
-<section class="slide">
-	<h2>Thresholding.</h2>
+	<h2>Setting up a dev environment</h2>
+	 <h3>Hopefully you should have googled this before coming..</h3> 
 	  <ul>
 	     <li class="text">
-			We choose a value as a threshold, then use that to compare every pixel in the image with this value.  Making an image of the result <code>(true/false)</code>  gives us a thresholded image.
+    	 	unzip the OpenCV-2.4.6-android-sdk folder.
     	 </li>
-    	 <li class="text">
-			There are variety of threshold methods that provide different results. Your mileage may vary depending upon application.
-    	 </li>
-	     <div class="polaroid">
-		<img src="img/thresh.jpeg" alt="">
-		<p>--mathworks</p>
-	</div>
+	     <li class="text">
+	     	open up eclipse and import this folder in a new workspace.
+	     </li>
+	     <li class="text">
+	        The first time, there might be some issues. see if the correct version of android is specified in build settings. java build paths must be correct, your <code>NDK and SDK</code> must be set up correctly.
+	     </li>
+	     <li class="text">
+		 	your mileage will vary depending on os platform and java version.
+	     </li>
+	     <li class="text">
+		 	to those who are having red issues. be of good cheer, all issues are resolvable through google.
+	     </li>
 	</ul>
 </section>
 
-<!-- Preparing Images before giving them to tesseract -->
 <section class="slide">
-	<h2>So what all did i do?</h2>
-	 <h3>OpenCV makes this part simple.</h3> 
+	<h2>the openCV samples</h2>
+	 <h3>underestimate not the importance of these sample apps.</h3> 
 	  <ul>
-	     <li class="slide text">
-	     	A low value <code>guassian filter</code>. This blurring effect reduces the noise and sharp edges in the pic.
-	     	<pre><code>Imgproc.GaussianBlur(i, o, new Size(9,9),15);</code></pre>  [you may need to sharpen the image after this if the font is too small..] 
+	     <li class="text">
+    	 	Tut 1 & 2 : Showing how to load a live preview stream from the camera from the android camera interface as well as opencv's camera interface.
     	 </li>
-	     <li class="slide text">
-	     	Convert image into grayscale.
-	     	<pre><code>Imgproc.cvtColor(i, o, Imgproc.COLOR_RGB2GRAY,3);</code></pre>
+	     <li class="text">
+	     	Tut 3 : Control what resolution you get images from your camera on the preview stream.
 	     </li>
-	     <li class="slide text">
-	     	Binary Thresholding converts the image to 1s and 0s.
-	     	<pre><code>Imgproc.threshold(i, o,0,255,Imgproc.THRESH_BINARY | Imgproc.THRESH_OTSU);</code></pre>
+	     <li class="text">
+	     	Face Detection : Shows using a Haar Classifier to recognize faces in an image.
+	     </li>
+	     <li class="text">
+	     	color blob detection :  scanning an image for similar color regions.
 	     </li>
 	</ul>
 </section>
+
 <section class="slide">
-	<h2>Tl;Dr</h2>
-	 <h3>We were talking about Image Processing.</h3> 
+	<h2>Now, what?</h2>
+	 <h3>The problem statement.</h3> 
 	  <ul>
-	     <li class="slide text">
-	     	Not that hard. openCV reduces image processing to function calls.
-		</li>
-	     <li class="slide text">
-	     	Fun way to use your Android device's GPU natively. (C++ batteries included)
+	     <li class="text">
+    	 	Phase 1 : detecting cirles in an image.
+    	 </li>
+	     <li class="text">
+	     	Phase 2 : detecting only "RED" colored circular shapes.
 	     </li>
-	     <li class="slide text">
-	     	You can never run out of things to try out..
-	     </li>
-	     <li class="slide text">
-	     	Fork. <code>Code.</code> Publish with MIT licence.
+	     <li class="text">
+	     	Phase 3 : Once a ball is detected. track it's movements until it goes out of the screen.
 	     </li>
 	</ul>
 </section>
+
+<section class="slide">
+	<h2>Detecting circles</h2>
+	 <h3>round things.. that uhh.. are smooth?</h3> 
+	  <ul>
+	     <li class="text">
+    	 	see, 3.12 (page 236) of the opencv_tutorials.pdf in the docs folder of the opencv sdk.
+    	 </li>
+	     <li class="text">
+	     	the standard C openCV code + explanation for the circle detector is given there.
+	     </li>
+	     <li class="text">
+	     	your mission, should you choose to accept it is to simply port that code into working on an android device.
+	     </li>
+	     <li>
+	     	hint:  cvtColor(...) becomes Imgproc.cvtColor(...)
+	     </li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Detecting Red colored Regions</h2>
+	 <h3>the "R" in RGB</h3> 
+	  <ul>
+	     <li class="text">
+	     Remember to always process the image in HSV format. 
+		 </li>
+	     <li class="text">
+			openCV has a function called Core.inRange(distance,<span title="min" id="min">new Scalar(0.0)</span>, <span title="max" id="max">new Scalar(200.0)</span>, <span title="output" id="ouput">thresholded_ouput</span>)
+	     </li>	
+	     <li class="text">
+	     <a href="http://www.aishack.in/2010/07/tracking-colored-objects-in-opencv/">you can read this</a>  only <a href="http://cell0907.blogspot.in/2013/07/tracking-ball-with-javaopencv.html">if</a><a href="http://wiki.elphel.com/index.php?title=OpenCV_Tennis_balls_recognizing_tutorial"> you want a hint</a>.
+	     </li>
+	</ul>
+</section>
+
 <!-- End slides. -->
 <!-- 
 <section class="slide">
